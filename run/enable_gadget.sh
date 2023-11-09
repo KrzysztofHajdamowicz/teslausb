@@ -46,7 +46,10 @@ echo "TeslaUSB Config" > "$gadget_root/configs/$cfg.1/strings/$lang/configuratio
 # A Raspberry Pi Zero W can peak up to 220 mA during boot, and has an idle power
 # use of about 80 mA.
 # The largest power demand the gadget can report is 500 mA.
-if isPi4
+if isPi5
+then
+  echo 500 > "$gadget_root/configs/$cfg.1/MaxPower"
+elif isPi4
 then
   echo 500 > "$gadget_root/configs/$cfg.1/MaxPower"
 elif isPi2
